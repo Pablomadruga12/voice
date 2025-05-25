@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.projectInfoBox}>
         <div><b>Side Project/MVP by Pablo Madruga</b></div>
-        <div style={{ marginTop: 8 }}><b>Vision:</b> AI-powered solution that lets seniors order an Uber via a simple phone call or WhatsApp, no app needed. Most people over 50 still call taxi dispatchers by phone. This project replaces that dispatcher with an AI, making ride-hailing as easy as saying "I need a ride." Orders can be completed in under 30 seconds.</div>
+        <div style={{ marginTop: 8 }}><b>Vision:</b> AI-powered solution that lets seniors order an Uber via a simple phone call or WhatsApp, no app needed. Most people over 50 still call taxi dispatchers by phone. This project replaces that dispatcher with an AI, making ride-hailing as easy as saying &quot;I need a ride.&quot; Orders can be completed in under 30 seconds.</div>
       </div>
       <main className={styles.main}>
         <h1>Voice Uber Assistant</h1>

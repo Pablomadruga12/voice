@@ -72,7 +72,7 @@ export default function VoiceUberAssistant() {
       mediaRecorderRef.current = mediaRecorder;
       setRecording(true);
       mediaRecorder.start();
-    } catch (err) {
+    } catch (_err) {
       setError("Could not access microphone.");
     }
   };
@@ -96,7 +96,7 @@ export default function VoiceUberAssistant() {
       } else {
         setError("Could not transcribe audio.");
       }
-    } catch (e) {
+    } catch (_e) {
       setError("Error sending audio to server.");
     }
     setLoading(false);
@@ -127,7 +127,7 @@ export default function VoiceUberAssistant() {
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content?.trim() || "Sorry, I didn't get that.";
       setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
-    } catch (e) {
+    } catch (_e) {
       setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, there was an error." }]);
     }
     setLoading(false);
