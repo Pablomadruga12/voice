@@ -72,7 +72,7 @@ export default function VoiceUberAssistant() {
       mediaRecorderRef.current = mediaRecorder;
       setRecording(true);
       mediaRecorder.start();
-    } catch (_err) {
+    } catch {
       setError("Could not access microphone.");
     }
   };
@@ -96,7 +96,7 @@ export default function VoiceUberAssistant() {
       } else {
         setError("Could not transcribe audio.");
       }
-    } catch (_e) {
+    } catch {
       setError("Error sending audio to server.");
     }
     setLoading(false);
@@ -127,19 +127,10 @@ export default function VoiceUberAssistant() {
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content?.trim() || "Sorry, I didn't get that.";
       setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
-    } catch (_e) {
+    } catch {
       setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, there was an error." }]);
     }
     setLoading(false);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || loading) return;
-    const userInput = input.trim();
-    setInput("");
-    setMessages((prev) => [...prev, { role: "user", content: userInput }]);
-    await sendMessageToOpenAI(userInput);
   };
 
   return (
