@@ -27,7 +27,6 @@ export default function VoiceUberAssistant() {
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: "Welcome! To get started, please tell me your full name and your ID number (e.g., 'John Doe, 123456')." },
   ]);
-  const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [recording, setRecording] = useState(false);
   const [error, setError] = useState<string | null>(null);
